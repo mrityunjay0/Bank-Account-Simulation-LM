@@ -5,11 +5,11 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class Transaction {
+public class TransactionLog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String transactionType;
     private double amount;
@@ -19,10 +19,10 @@ public class Transaction {
     @JoinColumn(name = "account_id")
     private Account account;
 
-    public Transaction() {
+    public TransactionLog() {
     }
 
-    public Transaction(long id, String transactionType, double amount, LocalDateTime time, Account account) {
+    public TransactionLog(long id, String transactionType, double amount, LocalDateTime time, Account account) {
         this.id = id;
         this.transactionType = transactionType;
         this.amount = amount;

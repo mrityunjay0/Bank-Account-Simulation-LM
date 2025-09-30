@@ -1,7 +1,6 @@
 package banking.bankingSystem.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,16 +16,16 @@ public class Account {
     private double balance;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private List<Transaction> transactions = new ArrayList<>();
+    private List<TransactionLog> transactionsLog = new ArrayList<>();
 
     public Account() {
     }
 
-    public Account(long id, String accountHolder, double balance, List<Transaction> transactions) {
+    public Account(Long id, String accountHolder, double balance, List<TransactionLog> transactionsLog) {
         this.id = id;
         this.accountHolder = accountHolder;
         this.balance = balance;
-        this.transactions = transactions;
+        this.transactionsLog = transactionsLog;
     }
 
     public long getId() {
@@ -53,11 +52,11 @@ public class Account {
         this.balance = balance;
     }
 
-    public List<Transaction> getTransactions() {
-        return transactions;
+    public List<TransactionLog> getTransactions() {
+        return transactionsLog;
     }
 
-    public void setTransactions(List<Transaction> transactions) {
-        this.transactions = transactions;
+    public void setTransactions(List<TransactionLog> transactions) {
+        this.transactionsLog = transactions;
     }
 }
