@@ -15,8 +15,9 @@ public class TransactionLog {
     private double amount;
     private LocalDateTime time;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
+    @com.fasterxml.jackson.annotation.JsonIgnore   // <— do not include Account when serializing a log
     private Account account;
 
     public TransactionLog() {

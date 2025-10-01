@@ -22,14 +22,14 @@ public class AccountController {
         return accountService.createAccount(accountHolder,balance);
     }
 
-    @PostMapping("/{id}/deposite")
-    public Account deposite(@PathVariable Long id, @RequestParam double balance){
+    @PostMapping("/{id}/deposit")
+    public Account deposit(@PathVariable Long id, @RequestParam double balance){
         return accountService.deposit(id, balance);
     }
 
     @PostMapping("/{id}/withdraw")
     public Account withdraw(@PathVariable Long id, @RequestParam double balance){
-        return accountService.Withdraw(id, balance);
+        return accountService.withdraw(id, balance);
     }
 
     @GetMapping("/{id}")
@@ -42,7 +42,7 @@ public class AccountController {
         return accountService.getAllAccounts();
     }
 
-    @GetMapping("/logs")
+    @GetMapping("/{id}/logs")
     public List<TransactionLog> transactionLogs(@PathVariable Long id){
         return accountService.getTransactions(id);
     }

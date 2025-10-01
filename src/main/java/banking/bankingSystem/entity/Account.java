@@ -15,7 +15,8 @@ public class Account {
     private String accountHolder;
     private double balance;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+    @com.fasterxml.jackson.annotation.JsonIgnore   // <— do not include logs when serializing Account
     private List<TransactionLog> transactionsLog = new ArrayList<>();
 
     public Account() {

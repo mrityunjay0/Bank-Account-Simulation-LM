@@ -46,7 +46,7 @@ public class AccountService {
         return accountRepository.save(account);
     }
 
-    public Account Withdraw(Long id, double amount){
+    public Account withdraw(Long id, double amount){
 
         Account account = accountRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Account not found."));
@@ -87,17 +87,3 @@ public class AccountService {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
